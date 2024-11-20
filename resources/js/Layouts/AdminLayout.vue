@@ -77,7 +77,7 @@ const logout = () => {
                                     class="absolute z-50 w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max">
                                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
                                         <span class="text-gray-800">{{ $page.props.auth.user.name }}</span>
-                                        <span class="text-sm text-gray-400">{{ $page.props.auth.user.email }}</span>
+                                        <span class="text-sm text-gray-400">{{ $page.props.auth.user.username }}</span>
                                     </div>
                                     <ul class="flex flex-col p-2 space-y-1">
                                         <li class="rounded-md hover:bg-teal-100">
