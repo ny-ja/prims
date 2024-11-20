@@ -40,7 +40,7 @@ const data = {
 
 const options = {
   responsive: true,
-  maintainAspectRatio: false, // Allows better control of resizing
+  maintainAspectRatio: true, // Allows better control of resizing
   plugins: {
     legend: {
       position: 'top' as const

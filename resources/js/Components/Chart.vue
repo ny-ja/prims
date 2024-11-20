@@ -10,7 +10,7 @@ import RadarChart from '@/ChartComponents/RadarChart.vue';
 const props = defineProps({
     chartTitle: String,
     labels: Array,
-    data: Array,
+    data: Object,
     backgroundColor: Array,
     chartType: String,
 });

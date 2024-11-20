@@ -52,7 +52,7 @@
   
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false, // For better resizing control
+    maintainAspectRatio: true, // For better resizing control
     plugins: {
       legend: {
         position: 'top' as const,
