@@ -35,7 +35,7 @@ class AccommodationTenantController extends Controller
 
     public function store(StoreTenantRequest $request)
     {
-        AccommodationTenant::create($request->validated());
+        $request->user()->accommodationTenant()->create($request->validated());
 
         return redirect()->back();
     }

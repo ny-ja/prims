@@ -45,7 +45,7 @@ class ResidentController extends Controller
         $path = $request->file('resident_profile_photo') ? $request->file('resident_profile_photo')->store('resident_profile_photos', 'public') : null;
         $validatedData['resident_profile_photo_path'] = $path;
         
-        Resident::create($validatedData);
+        $request->user()->resident()->create($validatedData);
 
         return redirect()->back();
     }

@@ -27,7 +27,7 @@ class BusinessEstablishmentController extends Controller
 
     public function store(StoreEstablishmentRequest $request)
     {
-        BusinessEstablishment::create($request->validated());
+        $request->user()->businessEstablishment()->create($request->validated());
 
         return redirect()->back();
     }

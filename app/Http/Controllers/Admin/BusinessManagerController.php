@@ -30,7 +30,7 @@ class BusinessManagerController extends Controller
 
     public function store(StoreManagerRequest $request)
     {
-        BusinessManager::create($request->validated());
+        $request->user()->businessManager()->create($request->validated());
 
         return redirect()->back();
     }

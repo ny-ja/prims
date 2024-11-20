@@ -28,6 +28,7 @@ const errorMessage = ref('');
 
 const form = useForm({
     id: null,
+    user_id: '',
     business_name: '',
     owner_name: '',
     owner_contact_number: '',

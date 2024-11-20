@@ -29,6 +29,7 @@ const errorMessage = ref('');
 
 const form = useForm({
     id: null,
+    user_id: '',
     head_of_household_id: '',
     household_street_address: '',
     barangay: '',

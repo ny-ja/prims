@@ -10,6 +10,7 @@ class Resident extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'first_name',
         'middle_name',
         'family_name',
@@ -34,6 +35,10 @@ class Resident extends Model
         'spouse_course',
         'resident_profile_photo_path'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
     // Relationship with Household (head of household)
     public function household()

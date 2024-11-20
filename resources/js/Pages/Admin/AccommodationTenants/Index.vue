@@ -29,6 +29,7 @@ const errorMessage = ref('');
 
 const form = useForm({
     id: null,
+    user_id: '',
     accommodation_id: '',
     resident_id: '',
     tenant_contact_number: '',

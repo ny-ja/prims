@@ -10,6 +10,7 @@ class Dependent extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'household_id',
         'first_name',
         'middle_name',
@@ -23,6 +24,10 @@ class Dependent extends Model
         'relationship_to_head',
         'dependent_profile_photo_path',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
     // Relationship with Household
     public function household()

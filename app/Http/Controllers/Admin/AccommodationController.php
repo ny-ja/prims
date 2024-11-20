@@ -27,7 +27,7 @@ class AccommodationController extends Controller
 
     public function store(StoreAccommodationRequest $request)
     {
-        Accommodation::create($request->validated());
+        $request->user()->accommodation()->create($request->validated());
 
         return redirect()->back();
     }

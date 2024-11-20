@@ -42,7 +42,7 @@ class DependentController extends Controller
         $path = $request->file('dependent_profile_photo') ? $request->file('dependent_profile_photo')->store('dependent_profile_photos', 'public') : null;
         $validatedData['dependent_profile_photo_path'] = $path;
         
-        Dependent::create($validatedData);
+        $request->user()->dependent()->create($validatedData);
 
         return redirect()->back();
     }

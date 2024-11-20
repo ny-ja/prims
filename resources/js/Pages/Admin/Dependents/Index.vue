@@ -40,6 +40,7 @@ const headOfHouseholds = computed(() => {
 
 const form = useForm({
     id: null,
+    user_id: "",
     household_id: "",
     first_name: "",
     middle_name: "",

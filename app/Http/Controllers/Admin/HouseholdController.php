@@ -32,7 +32,7 @@ class HouseholdController extends Controller
 
     public function store(StoreHouseholdRequest $request)
     {
-        Household::create($request->validated());
+        $request->user()->household()->create($request->validated());
 
         return redirect()->back();
     }

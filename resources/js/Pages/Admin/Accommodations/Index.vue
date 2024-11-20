@@ -28,6 +28,7 @@ const errorMessage = ref('');
 
 const form = useForm({
     id: null,
+    user_id: '',
     property_owner_name: '',
     property_owner_contact_number: '',
     property_owner_email: '',

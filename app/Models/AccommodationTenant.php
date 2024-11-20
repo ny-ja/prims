@@ -10,11 +10,16 @@ class AccommodationTenant extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'accommodation_id',
         'resident_id',
         'tenant_contact_number',
         'tenant_email',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
     // Relationship with Accommodation
     public function accommodation()
