@@ -10,12 +10,12 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 class ResidentsExport implements FromCollection, WithHeadings, WithMapping
 {
     protected $search;
-    protected $voterStatus;
+    protected $socialClassification;
 
-    public function __construct($search, $voterStatus)
+    public function __construct($search, $socialClassification)
     {
         $this->search = $search;
-        $this->voterStatus = $voterStatus;
+        $this->socialClassification = $socialClassification;
     }
 
     public function collection()
@@ -23,8 +23,8 @@ class ResidentsExport implements FromCollection, WithHeadings, WithMapping
         return Resident::when($this->search, function ($query) {
                 return $query->where('family_name', 'like', '%' . $this->search . '%');
             })
-            ->when($this->voterStatus, function ($query) {
-                return $query->where('voter_status', $this->voterStatus);
+            ->when($this->socialClassification, function ($query) {
+                return $query->whereJsonContains('social_classification', $this->socialClassification);
             })
             ->latest()
             ->get();
@@ -36,8 +36,26 @@ class ResidentsExport implements FromCollection, WithHeadings, WithMapping
             'ID',
             'Family Name',
             'First Name',
+            'Middle Name',
+            'Contact Number',
+            'Email',
+            'Birthday',
+            'Birthplace',
+            'Blood Type',
+            'Sex',
+            'Street Address',
+            'Employment Status',
+            'Employment Sector',
+            'Educational Attainment',
+            'Course',
+            'Social Classification',
             'Voter Status',
-            'Created At',
+            'Civil Status',
+            'Spouse Name',
+            'Spouse Employment Status',
+            'Spouse Employment Sector',
+            'Spouse Educational Attainment',
+            'Spouse Course'
         ];
     }
 
@@ -47,8 +65,26 @@ class ResidentsExport implements FromCollection, WithHeadings, WithMapping
             $resident->id,
             $resident->family_name,
             $resident->first_name,
+            $resident->middle_name,
+            $resident->contact_number,
+            $resident->email,
+            $resident->birthday,
+            $resident->birthplace,
+            $resident->blood_type,
+            $resident->sex,
+            $resident->street_address,
+            $resident->employment_status,
+            $resident->employment_sector,
+            $resident->educational_attainment,
+            $resident->course,
+            implode(', ', $resident->social_classification ?? []),
             $resident->voter_status,
-            $resident->created_at,
+            $resident->civil_status,
+            $resident->spouse_name,
+            $resident->spouse_employment_status,
+            $resident->spouse_employment_sector,
+            $resident->spouse_educational_attainment,
+            $resident->spouse_course,
         ];
     }
 }

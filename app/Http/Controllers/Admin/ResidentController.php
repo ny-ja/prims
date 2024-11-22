@@ -17,24 +17,24 @@ class ResidentController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $voterStatus = $request->input('voter_status');
+        $socialClassification = $request->input('social_classification');
 
         if ($request->has('export')) {
-            return Excel::download(new ResidentsExport($search, $voterStatus), 'residents.xlsx');
+            return Excel::download(new ResidentsExport($search, $socialClassification), 'residents.xlsx');
         }
 
         $residents = Resident::when($search, function ($query, $search) {
                 return $query->where('family_name', 'like', '%' . $search . '%');
             })
-            ->when($voterStatus, function ($query, $voterStatus) {
-                return $query->where('voter_status', $voterStatus);
+            ->when($socialClassification, function ($query, $socialClassification) {
+                return $query->whereJsonContains('social_classification', $socialClassification);
             })
             ->latest()
             ->paginate(10);
 
         return Inertia::render('Admin/Residents/Index', [
             'residents' => $residents,
-            'filters' => $request->only(['search', 'voter_status']),
+            'filters' => $request->only(['search', 'social_classification']),
         ]);
     }
 
