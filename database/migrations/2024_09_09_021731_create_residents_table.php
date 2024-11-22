@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('employment_sector');
             $table->string('educational_attainment');
             $table->string('course');
-            $table->string('social_classification');
+            $table->json('social_classification')->nullable();
             $table->string('voter_status');
             $table->string('civil_status');
             $table->string('spouse_name')->nullable();

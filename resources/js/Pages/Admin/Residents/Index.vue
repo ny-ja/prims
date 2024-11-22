@@ -44,7 +44,7 @@ const form = useForm({
     employment_sector: '',
     educational_attainment: '',
     course: '',
-    social_classification: '',
+    social_classification: [],
     voter_status: '',
     civil_status: '',
     spouse_name: '',
@@ -430,7 +430,7 @@ const deleteResident = () => {
                         </div>
                         <div>
                             <InputLabel for="social_classification" value="Social Classification" />
-                            <select v-model="form.social_classification" id="social_classification"
+                            <select v-model="form.social_classification" id="social_classification" multiple
                                 class="border-gray-300 focus:border-teal-500 focus:ring-teal-500 rounded-md shadow-sm w-full">
                                 <option value="Formal">Formal</option>
                                 <option value="Indigent">Indigent</option>

@@ -36,6 +36,10 @@ class Resident extends Model
         'resident_profile_photo_path'
     ];
 
+    protected $casts = [
+        'social_classification' => 'array',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

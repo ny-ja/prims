@@ -77,8 +77,9 @@ const props = defineProps(['resident']);
                     </div>
                     <div class="flex border-t border-gray-200 py-2">
                         <span class="text-gray-500">Social Classification</span>
-                        <span class="ml-auto text-gray-900">{{ resident.social_classification }}</span>
+                        <span class="ml-auto text-gray-900">{{ resident.social_classification.join(', ') }}</span>
                     </div>
+
                     <div class="flex border-t border-gray-200 py-2">
                         <span class="text-gray-500">Voter Status</span>
                         <span class="ml-auto text-gray-900">{{ resident.voter_status }}</span>

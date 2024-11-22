@@ -36,7 +36,7 @@ class StoreResidentRequest extends FormRequest
             'employment_sector' => 'required|string',
             'educational_attainment' => 'required|string',
             'course' => 'required|string',
-            'social_classification' => 'required|string',
+            'social_classification' => 'required|array',
             'voter_status' => 'required|string',
             'civil_status' => 'required|string',
             'spouse_name' => 'nullable|string',
